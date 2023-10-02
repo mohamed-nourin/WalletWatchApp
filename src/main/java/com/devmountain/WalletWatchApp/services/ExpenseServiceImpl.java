@@ -21,7 +21,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     public List<ExpenseDto> getAllExpenses(){
         List<Expense> expenseList = expenseRepository.findAll();
-        return expenseList.stream().map(expense -> new ExpenseDto(expense)).collect(Collectors.toList());
+        return expenseList.stream().map(ExpenseDto::new).collect(Collectors.toList());
     }
 
 

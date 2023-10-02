@@ -1,0 +1,88 @@
+/* Add this CSS to your login&register.css or a separate CSS file */
+
+/* Global Styles */
+body {
+    background-color: #f8f9fa; /* Background color for the body */
+    font-family: Arial, sans-serif; /* Choose a suitable font family */
+}
+
+.container {
+    max-width: 800px; /* Set the maximum width for the content container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding around the container */
+}
+
+/* Header Styles */
+header {
+    background-color: #343a40; /* Background color for the header */
+    color: #ffffff; /* Text color in the header */
+    text-align: center; /* Center-align the text */
+    padding: 20px 0; /* Add padding to the top and bottom */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin for h1 */
+}
+
+/* Section Styles */
+section {
+    background-color: #ffffff; /* Background color for the content section */
+    border-radius: 5px; /* Add rounded corners to the section */
+    padding: 20px; /* Add padding to the section */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Image Styles */
+section img {
+    max-width: 100%; /* Make sure images don't exceed the section width */
+    border-radius: 5px; /* Add rounded corners to images */
+}
+
+/* Form Styles */
+form {
+    text-align: left; /* Left-align form elements */
+}
+
+.form-label {
+    font-weight: bold; /* Make labels bold */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40; /* Background color for the footer */
+    color: #ffffff; /* Text color in the footer */
+    text-align: center; /* Center-align the text */
+    padding: 10px 0; /* Add padding to the top and bottom */
+}
+
+/* Link Styles */
+a {
+    color: #007bff; /* Link color (blue) */
+    text-decoration: none; /* Remove underlines from links */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff; /* Primary button background color (blue) */
+    border: none; /* Remove button border */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Input Styles */
+.form-control {
+    border: 1px solid #ced4da; /* Add a border to input elements */
+    border-radius: 3px; /* Add slight border radius to input elements */
+    padding: 10px; /* Add padding to input elements */
+}
+
+/* Add margin to the "Don't have a login?" link */
+.col a {
+    margin-top: 10px;
+}

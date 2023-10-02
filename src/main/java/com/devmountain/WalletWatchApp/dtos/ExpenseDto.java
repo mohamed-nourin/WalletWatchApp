@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
-
+//import java.util.Date;
+import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,7 +34,7 @@ public class ExpenseDto implements Serializable {
             this.paymentAmount = expense.getPaymentAmount();
         }
         if(expense.getDate() != null){
-            this.date = expense.getDate();
+            this.date = (Date) expense.getDate();
         }
     }
 
