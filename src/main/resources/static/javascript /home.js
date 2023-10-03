@@ -36,9 +36,9 @@ async function addExpense(expenseData) {
 
     if (response.status === 200) {
         getExpenses();
-        alert("Expense created successfully!"); // Alert after creating an expense
+        alert("EXPENSE ADDED SUCCESSFULLY!");
     } else {
-        alert("Failed to create expense!"); // Alert if creating expense fails
+        alert("FAILED TO ADD EXPENSE!");
     }
 }
 
@@ -118,10 +118,10 @@ function handleUpdate(button) {
             if (response.status === 200) {
                 form.reset();
                 getExpenses();
-                alert("Expense updated successfully!");
+                alert("EXPENSE UPDATED SUCCESSFULLY!");
             } else {
                 console.error("Failed to update expense");
-                alert("Failed to update expense!");
+                alert("FAILED TO UPDATE EXPENSE!");
             }
         })
         .catch(err => console.error(err))
