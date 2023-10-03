@@ -75,7 +75,7 @@ function createExpenseRows(expenses) {
             <td>${expense.paymentAmount}</td>
             <td>${formattedDate}</td> <!-- Display the formatted date -->
             <td>
-                <button class="btn btn-info" onclick="editExpense(${expense.id})">Update</button>
+                <button class="btn btn-info" data-expense-id="${expense.id}" onclick="handleUpdate(this)">Update</button>
                 <button class="btn btn-danger" onclick="deleteExpense(${expense.id})">Delete</button>
             </td>
         `;
@@ -94,49 +94,62 @@ async function deleteExpense(expenseId) {
     }
 }
 
-function editExpense(expenseId) {
-    fetch(`${baseUrl}/${expenseId}`, {
-        method: "GET",
-//        mode: 'no-cors'
-    })
-        .then(response => {
-            if (response.status === 404) {
-                console.error("Expense not found.");
-            } else if (response.ok) {
-                return response.json();
-            } else {
-                console.error("Failed to fetch expense data.");
-            }
-        })
-        .then(data => {
-            if (data) {
-                // Populate the form fields with the fetched expense data
-                title.value = data.title;
-                category.value = data.category;
-                amount.value = data.paymentAmount;
-                date.value = data.date;
+//function editExpense(expenseId) {
+//    fetch(`${baseUrl}/`, {
+//        method: "GET"
+//    })
+//        .then(response => {
+//            if (response.status === 404) {
+//                console.error("Expense not found.");
+//            } else if (response.ok) {
+//                return response.json();
+//            } else {
+//                console.error("Failed to fetch expense data.");
+//            }
+//        })
+//        .then(data => {
+//            if (data) {
+//                // Populate the form fields with the fetched expense data
+//                title.value = data.title;
+//                category.value = data.category;
+//                amount.value = data.paymentAmount;
+//                date.value = data.date;
+//
+//                // Add an event listener to the form for updating the expense
+//                form.removeEventListener("submit", handleSubmit);
+//                form.addEventListener("submit", (e) => handleUpdate(e, expenseId));
+//                const addButton = form.querySelector("button[type='submit']");
+//                addButton.textContent = "Update Expense";
+//
+//                // Disable the form fields while updating
+//                title.disabled = true;
+//                category.disabled = true;
+//                amount.disabled = true;
+//                date.disabled = true;
+//            }
+//        })
+//        .catch(err => console.error(err));
+//}
 
-                // Add an event listener to the form for updating the expense
-                form.removeEventListener("submit", handleSubmit);
-                form.addEventListener("submit", (e) => handleUpdate(e, expenseId));
-                const addButton = form.querySelector("button[type='submit']");
-                addButton.textContent = "Update Expense";
-            }
-        })
-        .catch(err => console.error(err));
-}
+function handleUpdate(button) {
+    const expenseId = button.getAttribute("data-expense-id");
 
-function handleUpdate(e, expenseId) {
-    e.preventDefault();
+    console.log(expenseId);
+
     const updatedExpenseData = {
+        id: expenseId,
         title: title.value,
         category: category.value,
         paymentAmount: parseFloat(amount.value),
         date: date.value
     };
 
+        console.log(updatedExpenseData);
+        console.log(JSON.stringify(updatedExpenseData));
+
+
     // Send a PUT request to update the expense with the new data
-    fetch(`${baseUrl}/${expenseId}`, {
+    fetch(`${baseUrl}/`, {
         method: "PUT",
         body: JSON.stringify(updatedExpenseData),
         headers: headers
@@ -150,7 +163,20 @@ function handleUpdate(e, expenseId) {
                 console.error("Failed to update expense");
             }
         })
-        .catch(err => console.error(err));
+        .catch(err => console.error(err))
+        .finally(() => {
+            // Re-enable the form fields after updating
+            title.disabled = false;
+            category.disabled = false;
+            amount.disabled = false;
+            date.disabled = false;
+
+            // Restore the form submit event handler
+            form.removeEventListener("submit", handleUpdate);
+            form.addEventListener("submit", handleSubmit);
+            const addButton = form.querySelector("button[type='submit']");
+            addButton.textContent = "Add Expense";
+        });
 }
 
 function handleLogout() {
