@@ -1,14 +1,12 @@
-/* Body styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
 }
 
-/* Container styles */
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 100px; /* Increase padding for a larger container */
+  padding: 100px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -16,20 +14,18 @@ body {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Header styles */
 header {
-    background-color: #343a40; /* Background color for the header */
-    color: #ffffff; /* Text color in the header */
-    text-align: center; /* Center-align the text */
-    padding: 15px 10px; /* Add padding to the top and bottom */
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 10px;
 }
 
 header h1 {
-  font-size: 24px; /* Reduce font size for the header */
-  margin: 0; /* Remove margin for the h1 element */
+  font-size: 24px;
+  margin: 0;
 }
 
-/* Form styles */
 .form-group {
   margin-bottom: 15px;
 }
@@ -48,13 +44,13 @@ header h1 {
 }
 
 footer {
-    background-color: #343a40; /* Background color for the footer */
-    color: #ffffff; /* Text color in the footer */
-    text-align: center; /* Center-align the text */
-    padding: 10px 0; /* Add padding to the top and bottom */
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
 }
 
-/* Button styles */
+
 button {
   padding: 10px 20px;
   border: none;
@@ -63,7 +59,7 @@ button {
 }
 
 .btn-primary {
-  background-color: #4CAF50; /* Green color */
+  background-color: #4CAF50;
   color: #fff;
   transition: background-color 0.3s;
 }
@@ -78,7 +74,7 @@ button {
   background-color: #0056b3;
 }
 
-/* Table styles */
+
 .table {
   width: 100%;
   margin-top: 20px;
@@ -93,7 +89,7 @@ button {
   color: #fff;
 }
 
-/* Animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;

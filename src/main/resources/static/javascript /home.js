@@ -4,7 +4,7 @@ const category = document.getElementById("category-input");
 const amount = document.getElementById("amount-input");
 const date = document.getElementById("date-input");
 const form = document.getElementById("expense-form");
-const logoutButton = document.getElementById("logout-button"); // Get the logout button element
+const logoutButton = document.getElementById("logout-button");
 
 const headers = {
     'Content-Type': 'application/json'
@@ -13,7 +13,7 @@ const headers = {
 const baseUrl = 'http://localhost:8080/expense';
 
 form.addEventListener("submit", handleSubmit);
-logoutButton.addEventListener("click", handleLogout); // Add a click event listener to the logout button
+logoutButton.addEventListener("click", handleLogout);
 
 async function handleSubmit(e) {
     e.preventDefault();
@@ -36,6 +36,9 @@ async function addExpense(expenseData) {
 
     if (response.status === 200) {
         getExpenses();
+        alert("Expense created successfully!"); // Alert after creating an expense
+    } else {
+        alert("Failed to create expense!"); // Alert if creating expense fails
     }
 }
 
@@ -52,20 +55,16 @@ async function getExpenses() {
 }
 
 function createExpenseRows(expenses) {
-    // Sort expenses by date in ascending order
     expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     expenseContainer.innerHTML = "";
     expenses.forEach(expense => {
-        // Convert the date string to a JavaScript Date object
         const expenseDate = new Date(expense.date);
 
-        // Get the day, month, and year components
         const day = String(expenseDate.getDate()).padStart(2, '0');
         const month = String(expenseDate.getMonth() + 1).padStart(2, '0');
         const year = expenseDate.getFullYear();
 
-        // Create the formatted date string
         const formattedDate = `${day}/${month}/${year}`;
 
         const row = document.createElement("tr");
@@ -94,43 +93,6 @@ async function deleteExpense(expenseId) {
     }
 }
 
-//function editExpense(expenseId) {
-//    fetch(`${baseUrl}/`, {
-//        method: "GET"
-//    })
-//        .then(response => {
-//            if (response.status === 404) {
-//                console.error("Expense not found.");
-//            } else if (response.ok) {
-//                return response.json();
-//            } else {
-//                console.error("Failed to fetch expense data.");
-//            }
-//        })
-//        .then(data => {
-//            if (data) {
-//                // Populate the form fields with the fetched expense data
-//                title.value = data.title;
-//                category.value = data.category;
-//                amount.value = data.paymentAmount;
-//                date.value = data.date;
-//
-//                // Add an event listener to the form for updating the expense
-//                form.removeEventListener("submit", handleSubmit);
-//                form.addEventListener("submit", (e) => handleUpdate(e, expenseId));
-//                const addButton = form.querySelector("button[type='submit']");
-//                addButton.textContent = "Update Expense";
-//
-//                // Disable the form fields while updating
-//                title.disabled = true;
-//                category.disabled = true;
-//                amount.disabled = true;
-//                date.disabled = true;
-//            }
-//        })
-//        .catch(err => console.error(err));
-//}
-
 function handleUpdate(button) {
     const expenseId = button.getAttribute("data-expense-id");
 
@@ -144,11 +106,9 @@ function handleUpdate(button) {
         date: date.value
     };
 
-        console.log(updatedExpenseData);
-        console.log(JSON.stringify(updatedExpenseData));
+    console.log(updatedExpenseData);
+    console.log(JSON.stringify(updatedExpenseData));
 
-
-    // Send a PUT request to update the expense with the new data
     fetch(`${baseUrl}/`, {
         method: "PUT",
         body: JSON.stringify(updatedExpenseData),
@@ -156,22 +116,21 @@ function handleUpdate(button) {
     })
         .then(response => {
             if (response.status === 200) {
-                // Reset the form and reload the expenses
                 form.reset();
                 getExpenses();
+                alert("Expense updated successfully!");
             } else {
                 console.error("Failed to update expense");
+                alert("Failed to update expense!");
             }
         })
         .catch(err => console.error(err))
         .finally(() => {
-            // Re-enable the form fields after updating
             title.disabled = false;
             category.disabled = false;
             amount.disabled = false;
             date.disabled = false;
 
-            // Restore the form submit event handler
             form.removeEventListener("submit", handleUpdate);
             form.addEventListener("submit", handleSubmit);
             const addButton = form.querySelector("button[type='submit']");
@@ -180,9 +139,7 @@ function handleUpdate(button) {
 }
 
 function handleLogout() {
-    // Redirect the user to the login page
-    window.location.href = "login.html"; // Replace "login.html" with the actual URL of your login page
+    window.location.href = "login.html";
 }
 
-// Load expenses when the page loads
 getExpenses();

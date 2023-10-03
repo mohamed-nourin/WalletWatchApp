@@ -1,88 +1,84 @@
-/* Add this CSS to your login&register.css or a separate CSS file */
-
-/* Global Styles */
 body {
-    background-color: #f8f9fa; /* Background color for the body */
-    font-family: Arial, sans-serif; /* Choose a suitable font family */
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
 }
 
 .container {
-    max-width: 800px; /* Set the maximum width for the content container */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add some padding around the container */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Header Styles */
+
 header {
-    background-color: #343a40; /* Background color for the header */
-    color: #ffffff; /* Text color in the header */
-    text-align: center; /* Center-align the text */
-    padding: 20px 0; /* Add padding to the top and bottom */
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
 }
 
 header h1 {
-    margin: 0; /* Remove default margin for h1 */
+    margin: 0;
 }
 
-/* Section Styles */
+
 section {
-    background-color: #ffffff; /* Background color for the content section */
-    border-radius: 5px; /* Add rounded corners to the section */
-    padding: 20px; /* Add padding to the section */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Image Styles */
+
 section img {
-    max-width: 100%; /* Make sure images don't exceed the section width */
-    border-radius: 5px; /* Add rounded corners to images */
+    max-width: 100%;
+    border-radius: 5px;
 }
 
-/* Form Styles */
+
 form {
-    text-align: left; /* Left-align form elements */
+    text-align: left;
 }
 
 .form-label {
-    font-weight: bold; /* Make labels bold */
+    font-weight: bold;
 }
 
-/* Footer Styles */
+
 footer {
-    background-color: #343a40; /* Background color for the footer */
-    color: #ffffff; /* Text color in the footer */
-    text-align: center; /* Center-align the text */
-    padding: 10px 0; /* Add padding to the top and bottom */
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
 }
 
-/* Link Styles */
+
 a {
-    color: #007bff; /* Link color (blue) */
-    text-decoration: none; /* Remove underlines from links */
+    color: #007bff;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline;
 }
 
-/* Button Styles */
 .btn-primary {
-    background-color: #007bff; /* Primary button background color (blue) */
-    border: none; /* Remove button border */
+    background-color: #007bff;
+    border: none;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
-/* Input Styles */
+
 .form-control {
-    border: 1px solid #ced4da; /* Add a border to input elements */
-    border-radius: 3px; /* Add slight border radius to input elements */
-    padding: 10px; /* Add padding to input elements */
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    padding: 10px;
 }
 
-/* Add margin to the "Don't have a login?" link */
+
 .col a {
     margin-top: 10px;
 }

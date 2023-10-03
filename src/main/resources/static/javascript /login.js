@@ -31,11 +31,9 @@ const handleSubmit = async (e) =>{
     alert("Username or password incorrect")}
 
     else if (responseArr[0] === "http://localhost:8080/home.html"){
-//        window.location.replace("http://localhost:8080/home.html")
         window.location.replace("http://localhost:63342/WalletWatch/WalletWatch/src/main/resources/static/html/home.html?_ijt=omnik32ko60fadck10fuc06pvj&_ij_reload=RELOAD_ON_SAVE")
 
         document.cookie = `userId=${responseArr[1]}`;
-//        document.cookie = `username=${responseArr[2]}`;
     }
 
 }
